@@ -27,7 +27,7 @@ var autoplay = {
 var answer, image, trainingtype, repeatInterval;
 var counter	= 0;
 var right	= 0;
-var mistake = [];
+var mistake = {};
 var dir 	= 'media/images/';
 //default settings
 var images = [];
@@ -104,7 +104,7 @@ function checkPLL(key) {
 			$('#error').text('');
 		}
 		else {
-			mistake.push(image);
+			mistake.push([image, answer]);
 			$('#error').text('Это был ' + image[0] + '-perm!');
 		}
 		showImage();
@@ -124,7 +124,7 @@ function checkBLD(key) {
 			$('#error').text('');
 		}
 		else {
-			mistake.push(image);
+			mistake.push([image, answer]);
 			$('#error').text('Это была буква ' + image[0] + '!');
 		}
 		showImage();
@@ -193,9 +193,13 @@ function showMistakes() {
 	$('#image').hide();	
 	$('#counter').hide();		
 	var a = '';
-	for (i=0; i<mistake.length; i++) {
-		a += '<img src="media/images/' + trainingtype + '/' + mistake[i] + '.png" title="' + mistake[i][0] + '"/>';
-	}
+	for (i = 0; i < mistake.length; i++) {
+        a += '<tr>';
+        a += '<td class="yes">' + mistake[i][0][0] + '</td>';
+        a += '<td><img width="100" src="media/images/' + trainingtype + '/' + mistake[i][0] + '.png"/></td>';
+        a += '<td class="no">' + mistake[i][1] + '</td>';
+        a += '</tr>';
+    }
 	$('#mistakes').html(a);
 	$('#mistakes').show();
 }
