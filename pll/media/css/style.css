@@ -1,0 +1,58 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, sans-serif;
+    text-align: center;
+}
+.center {
+    margin: 0 auto;
+}
+.menu {
+    font-size: 14pt;
+    padding-top: 10px;
+}
+a {
+    color: #6DA3BD;
+    text-decoration: none;
+    border-bottom: 1px dashed #6DA3BD;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+#mistakes {
+    margin: 0 auto;
+}
+a.active {
+    border-bottom: none;
+    color: black;
+}
+#image {
+    margin-top: 50px;
+    height: 300px;
+}
+#counter {
+    font-size: 18pt;
+    padding-top: 50px;
+    color: gray;
+}
+#container {
+    display: none;
+}
+#scramble {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    font-size: 18pt;
+}
+#error {
+    margin-top: 10px;
+    color: red;
+}
+#results {
+    margin: 0 auto;
+    font-size: 18pt;
+}
+.yes {
+    color: green;
+}
+.no {
+    color: red;
+}
