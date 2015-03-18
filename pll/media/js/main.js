@@ -11,6 +11,22 @@ var autoplay = {
     53: [5000, '(5 sec)'],
 };
 
+var keys = {
+    82: 'R',
+    84: 'T',
+    89: 'Y',
+    85: 'U',
+    65: 'A',
+    70: 'F',
+    71: 'G',
+    72: 'H',
+    90: 'Z',
+    86: 'V',
+    78: 'N',
+    69: 'E',
+    74: 'J'
+};
+
 var answer, image, trainingtype, repeatInterval;
 var counter = 0;
 var right = 0;
@@ -73,21 +89,6 @@ $('body').ready(function() {
             showMistakes();
             return;
         }
-        var keys = {
-            82: 'R',
-            84: 'T',
-            89: 'Y',
-            85: 'U',
-            65: 'A',
-            70: 'F',
-            71: 'G',
-            72: 'H',
-            90: 'Z',
-            86: 'V',
-            78: 'N',
-            69: 'E',
-            74: 'J'
-        };
         if (keys[key] != null) {
             answer = keys[key];
             if (answer == image[0]) {
