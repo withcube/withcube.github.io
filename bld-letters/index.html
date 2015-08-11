@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Буквы</title>
+	<link rel="stylesheet" href="main.css">
+</head>
+<body>
+	<div id="instruction">
+		Буквы перключаются по пробелу.<br>
+		Для проверки нажми "Enter".<br>
+		Если не помнишь букву, ставь * или точку.<br>
+		Нажми пробел, чтобы начать.
+	</div>
+	<div id="counter"></div>
+	<h1 id="display"></h1>
+
+	<div id="results">
+		<table>
+			<tr id="right"></tr>
+			<tr id="answer"></tr>
+		</table>
+	</div>
+	<div id="time"></div>
+	<div id="mistakes"></div>
+	<input type="text" id="input">
+	<input type="button" class="medium green" id="button" onclick="reset();" value="Ещё раз"/>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
