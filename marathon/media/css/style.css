@@ -1,0 +1,74 @@
+* {
+	padding: 			0;
+	margin: 			0;
+	font-family: 		Verdana, sans-serif ;
+	text-align:			center;
+}
+
+#preferences-view {
+	padding-top:		100pt;
+	font-size:			16pt;
+	line-height: 		25pt;
+}
+
+#error {
+	padding-top:		100pt;
+	font-size:			16pt;
+	color: 				red;
+}
+
+.menu {
+	font-size:			14pt;
+	padding-top:		10px;
+}
+
+.menu a {
+	border-bottom: 		1px dashed #6DA3BD;;
+}
+
+.menu a.active {
+	border-bottom: 		none;
+	color: 				black;
+}
+
+#scramble {
+	font-size: 			18pt;
+	margin-top:			50pt;
+	height:				30pt;
+	padding-bottom:		30pt;
+}
+
+#timer {
+	font-size:			60pt;
+}
+
+#results {
+	margin: 			0 auto;
+	font-size: 			18pt;
+	width: 				80%;
+
+}
+
+#solved {
+	font-size:			60pt;
+	height:				60pt;
+	width:				30%;
+}
+
+#current-time {
+	font-size:			50pt;
+	height: 			100pt;
+	width:				30%;
+}
+
+#from-start, #to-end {
+	color: gray;
+}
+
+#last-solve {
+	color: green;
+}
+
+#current-time {
+	color:	gray;
+}

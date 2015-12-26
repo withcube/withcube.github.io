@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Марафон Offline</title>
+	<link rel="stylesheet" type="text/css" href="media/css/style.css">
+	<link rel="stylesheet" type="text/css" href="media/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="media/css/bootstrap-editable.css">
+	<link rel="shortcut icon" href="media/img/favicon.ico">
+	<script type="text/javascript" src="media/js/jquery.js"></script>
+	<script type="text/javascript" src="media/js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="media/js/bootstrap.js"></script>
+	<script type="text/javascript" src="media/js/bootstrap-editable.js"></script>
+	<script type="text/javascript" src="media/js/scrambling.js"></script>
+</head>
+
+<body>
+	<div class="menu">
+		<a href="./" id="marathon" class="active">Марафон</a>
+		<a href="./" id="preferences">Настройки</a>
+	</div>
+
+	<div id="preferences-view" hidden>
+		Марафон начнётся в 
+		<a href="#" id="start-time" data-original-title="Начало марафона" data-value="">11:00</a> и продлится 
+		<a href="#" id="duration-time" data-original-title="Длительность марафона" data-value="">3</a> часа. 
+		</br>
+		<a href="#" class="toggle" id="pref-scramble">Показывать</a> скрамблы. 
+		<a href="#" class="toggle" id="pref-orientation">Менять</a> ориентацию куба. 
+		</br>
+		Уже собрано 
+		<a href="#" id="cubes-solved" data-type="text" data-original-title="Собрано кубов" data-value="">0</a> кубов.
+	</div>
+
+	<div id="marathon-view">
+		<div id="scramble"></div>
+		<table id="results" border="0">
+			<tr>
+				<td id="from-start"></td><td id="solved"></td><td id="to-end"></td>
+			</tr>
+			<tr>
+				<td></td><td id="appr"></td><td></td>
+			</tr>
+			<tr height="50"></tr>
+			<tr id="bottom">
+				<td id="last-solve"></td><td id="current-time">12</td><td></td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="error" hidden></div>
+</body>
+	<script type="text/javascript" src="media/js/functions.js"></script>
+	<script type="text/javascript" src="media/js/main.js"></script>
+	<script type="text/javascript">
+	//iPad version
+	$('body').bind("click touchstart", function(event) {
+	    event.preventDefault();
+	    if (trigger) showImage();
+	});
+	</script>
+</html>
