@@ -6,6 +6,8 @@ if (typeof $.cookie('start-time') === 'undefined') {
 	$.cookie('start-time', '10:00');
 	$.cookie('duration-time', '3');
 	$.cookie('cubes-solved', '0');
+	$.cookie('pref-today', 'сегодня');
+	$.cookie('pref-date', now.getDate());
 	$.cookie('pref-scramble', 'Показывать');
 	$.cookie('pref-orientation', 'Менять');
 }
@@ -16,8 +18,9 @@ clockId = setInterval(stopwatch, 10);
 lastStart = Date.now();
 lastSolve = 0;
 counter = $.cookie('cubes-solved');
+date = $.cookie('pref-date');
 now = new Date;
-startTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hoursFromHHMM($.cookie('start-time')), minutesFromHHMM($.cookie('start-time')), 0, 0);
+startTime = new Date(now.getFullYear(), now.getMonth(), date, hoursFromHHMM($.cookie('start-time')), minutesFromHHMM($.cookie('start-time')), 0, 0);
 duration = parseFloat($.cookie('duration-time')) * 60 * 60;
 seconds = Math.floor((now - startTime)/1000);
 timing();
@@ -38,6 +41,10 @@ $('.menu a').click(function(event) {
 	}
 }); 
 
+if ($('#pref-today').text() == 'сегодня')
+	$('#pref-today').css('color', 'green');
+else $('#pref-today').css('color', 'red');
+
 if ($('#pref-scramble').text() == 'Показывать')
 	$('#pref-scramble').css('color', 'green');
 else $('#pref-scramble').css('color', 'red');
@@ -47,6 +54,16 @@ if ($('#pref-orientation').text() == 'Менять')
 else $('#pref-orientation').css('color', 'red');
 
 //Самодельный toggle
+$('#pref-today').click(function() {
+	if ($(this).text() == 'сегодня') {
+		$(this).text("вчера").css('color', 'red');
+	}
+	else 
+		$(this).text("сегодня").css('color', 'green');;	
+	savePreferences();
+
+});
+
 $('#pref-scramble').click(function() {
 	if ($(this).text() == 'Показывать') {
 		$(this).text("Не показывать").css('color', 'red');

@@ -12,6 +12,8 @@ function openPreferences() {
 	$('#start-time').text($.cookie('start-time'));
 	$('#duration-time').text($.cookie('duration-time'));
 	$('#cubes-solved').text($.cookie('cubes-solved'));
+	date = $.cookie('pref-date');
+	$('#pref-today').text($.cookie('pref-today'));
 	$('#pref-scramble').text($.cookie('pref-scramble'));
 	$('#pref-orientation').text($.cookie('pref-orientation'));
 }
@@ -21,6 +23,10 @@ function savePreferences() {
 	$.cookie('start-time', $('#start-time').text());
 	$.cookie('duration-time', $('#duration-time').text());
 	$.cookie('cubes-solved', $('#cubes-solved').text());
+	$.cookie('pref-today', $('#pref-today').text());
+	if ($.cookie('pref-today') == 'сегодня')
+		$.cookie('pref-date', now.getDate());
+	else $.cookie('pref-date', now.getDate()-1);
 	$.cookie('pref-scramble', $('#pref-scramble').text());
 	$.cookie('pref-orientation', $('#pref-orientation').text());
 }
@@ -85,7 +91,10 @@ function selectTabMarathon() {
 	savePreferences();
 	counter = $.cookie('cubes-solved');
 	now = new Date;
+	if ($.cookie('pref-today') == 'сегодня')
 	startTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hoursFromHHMM($.cookie('start-time')), minutesFromHHMM($.cookie('start-time')), 0, 0);
+else 
+	startTime = new Date(now.getFullYear(), now.getMonth(), now.getDate()-1, hoursFromHHMM($.cookie('start-time')), minutesFromHHMM($.cookie('start-time')), 0, 0);
 	duration = $.cookie('duration-time') * 60 * 60;
 	seconds = Math.floor((now - startTime)/1000);
 	$('#solved').text(counter);
